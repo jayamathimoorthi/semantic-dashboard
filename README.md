@@ -1,50 +1,61 @@
-# Responsive Design Tokens & Mobile-First CSS Architecture
+# Dynamic Product Dashboard
 
-## Project Overview
+A responsive product dashboard using JavaScript ES6+, REST API, search, category filtering, sorting, and localStorage.
 
-This project demonstrates a responsive dashboard designed using modern CSS architecture.
+## Implementation Note
 
-## Implementation
+Implemented a dynamic product dashboard using JavaScript ES6+ and a public REST API.
 
-- CSS custom properties (Design Tokens)
-- CSS Grid
-- Flexbox
-- Mobile-first responsive design
-- Responsive breakpoints:
-  - 320px
-  - 768px
-  - 1024px
-  - 1440px
-- Glassmorphism effects
-- Soft shadows
-- Hover transitions
-- Light and dark theme variables
-- Mobile horizontal overflow prevention
+The application uses async/await and fetch() to retrieve live product data from the DummyJSON REST API.
 
-## Responsive Design
+Users can:
+- Search products in real time
+- Filter products by category
+- Sort products by price and name
+- Add products to cart
+- Store cart data using localStorage
+- View loading states while data is being fetched
+- See a user-friendly error message when the API request fails
 
-The dashboard adapts across mobile, tablet, desktop, and large desktop screens.
+The JavaScript code is organized into separate modular files:
 
-### Mobile
-Cards are displayed in a single-column layout.
+- `app.js` - Handles UI, search, filtering, sorting, cart, and application state
+- `api.js` - Handles REST API requests and product data fetching
 
-### Tablet
-Cards are displayed in a two-column layout.
-
-### Desktop
-Cards are displayed in multiple columns based on screen width.
-
-## Files
-
-- `index.html` – Dashboard structure
-- `style.css` – Responsive styling and design tokens
-- `mobile-responsive.png` – Responsive demo screenshot
-
-## Technologies
+## Technologies Used
 
 - HTML5
 - CSS3
-- CSS Grid
-- Flexbox
-- CSS Custom Properties
-- Media Queries
+- JavaScript ES6+
+- Fetch API
+- Async/Await
+- REST API
+- LocalStorage
+- DummyJSON API
+- Responsive CSS
+
+## Features
+
+### Live REST API
+Products are fetched dynamically from the DummyJSON REST API.
+
+### Real-Time Search
+Users can search products without reloading the page.
+
+### Category Filtering
+Products can be filtered using category buttons such as Smartphones, Laptops, Beauty, and Furniture.
+
+### Sorting
+Products can be sorted by:
+- Price: Low to High
+- Price: High to Low
+- Name: A to Z
+
+### LocalStorage
+Cart information is stored in the browser using localStorage.
+
+### Error Handling
+The application displays a friendly error message and Try Again option when the API request fails.
+
+### Responsive Design
+The dashboard works across mobile, tablet, and desktop screen sizes.
