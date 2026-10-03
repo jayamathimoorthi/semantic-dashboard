@@ -1,197 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Accessible Enterprise Dashboard">
-    <link rel="stylesheet" href="style.css">
-    <title>Enterprise Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Responsive Dashboard</title>
 </head>
 
 <body>
 
-    <header>
-        <h1>Enterprise Dashboard</h1>
+  <main class="dashboard">
 
-        <nav aria-label="Main navigation">
-            <ul>
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#users">Users</a></li>
-                <li><a href="#reports">Reports</a></li>
-                <li><a href="#settings">Settings</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+      <div>
+        <h1>Responsive Dashboard</h1>
+        <p>Mobile-first design with modern CSS architecture</p>
+      </div>
     </header>
 
-    <aside aria-label="Sidebar navigation">
-        <h2>Menu</h2>
-        <nav aria-label="Sidebar menu">
-            <ul>
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#users">Users</a></li>
-                <li><a href="#reports">Reports</a></li>
-                <li><a href="#settings">Settings</a></li>
-            </ul>
-        </nav>
-    </aside>
+    <section class="dashboard-grid">
 
-    <main id="dashboard">
+      <article class="card">
+        <h2>Analytics</h2>
+        <p>Track your application performance and important metrics.</p>
+      </article>
 
-        <section aria-labelledby="overview-heading">
-            <h2 id="overview-heading">Dashboard Overview</h2>
+      <article class="card">
+        <h2>Users</h2>
+        <p>Manage users and monitor activity across the application.</p>
+      </article>
 
-            <article>
-                <h3>Total Users</h3>
-                <p>1,250</p>
-            </article>
+      <article class="card">
+        <h2>Projects</h2>
+        <p>View active projects and organize your workflow efficiently.</p>
+      </article>
 
-            <article>
-                <h3>Active Users</h3>
-                <p>980</p>
-            </article>
+      <article class="card">
+        <h2>Reports</h2>
+        <p>Generate useful reports and understand your data better.</p>
+      </article>
 
-            <article>
-                <h3>Reports</h3>
-                <p>45</p>
-            </article>
-        </section>
+      <article class="card">
+        <h2>Performance</h2>
+        <p>Monitor system performance across different screen sizes.</p>
+      </article>
 
-        <section id="users" aria-labelledby="users-heading">
-            <h2 id="users-heading">User Information</h2>
+      <article class="card">
+        <h2>Settings</h2>
+        <p>Customize your dashboard and application preferences.</p>
+      </article>
 
-            <table>
-                <caption>Employee information</caption>
+    </section>
 
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Department</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>Arun Kumar</td>
-                        <td>IT</td>
-                        <td>arun@example.com</td>
-                        <td>Active</td>
-                    </tr>
-
-                    <tr>
-                        <td>Priya Sharma</td>
-                        <td>HR</td>
-                        <td>priya@example.com</td>
-                        <td>Active</td>
-                    </tr>
-
-                    <tr>
-                        <td>Rahul Kumar</td>
-                        <td>Finance</td>
-                        <td>rahul@example.com</td>
-                        <td>Inactive</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="reports" aria-labelledby="form-heading">
-            <h2 id="form-heading">Create Report</h2>
-
-            <form action="#" method="post">
-
-                <fieldset>
-                    <legend>Report Information</legend>
-
-                    <p>
-                        <label for="name">Full Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            required
-                            autocomplete="name"
-                        >
-                    </p>
-
-                    <p>
-                        <label for="email">Email Address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            autocomplete="email"
-                            aria-label="Email address"
-                        >
-                    </p>
-
-                    <p>
-                        <label for="department">Department</label>
-                        <select
-                            id="department"
-                            name="department"
-                            required
-                            aria-label="Select department"
-                        >
-                            <option value="">Select a department</option>
-                            <option value="it">IT</option>
-                            <option value="hr">HR</option>
-                            <option value="finance">Finance</option>
-                            <option value="marketing">Marketing</option>
-                        </select>
-                    </p>
-
-                    <p>
-                        <label for="report">Report Details</label>
-                        <textarea
-                            id="report"
-                            name="report"
-                            rows="5"
-                            required
-                            aria-label="Report details"
-                        ></textarea>
-                    </p>
-
-                    <button type="submit">Submit Report</button>
-
-                </fieldset>
-            </form>
-        </section>
-
-        <section id="settings" aria-labelledby="settings-heading">
-            <h2 id="settings-heading">Settings</h2>
-
-            <article>
-                <h3>Account Settings</h3>
-                <p>Manage your dashboard preferences and account information.</p>
-
-                <button
-                    type="button"
-                    aria-label="Open account settings dialog"
-                    onclick="document.getElementById('settings-dialog').showModal()"
-                >
-                    Open Settings
-                </button>
-            </article>
-        </section>
-
-    </main>
-
-    <dialog id="settings-dialog" aria-labelledby="dialog-title">
-        <h2 id="dialog-title">Account Settings</h2>
-
-        <p>Update your account settings from this dialog.</p>
-
-        <form method="dialog">
-            <button type="submit">Close</button>
-        </form>
-    </dialog>
-
-    <footer>
-        <p>&copy; 2026 Enterprise Dashboard. All rights reserved.</p>
-    </footer>
+  </main>
 
 </body>
 </html>
