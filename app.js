@@ -1,5 +1,6 @@
 let products = [];
 let filteredProducts = [];
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const productGrid = document.querySelector(".dashboard-grid");
@@ -9,24 +10,43 @@ const categoryButtons = document.querySelectorAll(".category-btn");
 
 let selectedCategory = "all";
 
+
+/* =========================
+   Load Products
+   ========================= */
+
 async function loadProducts() {
+
   showLoading();
 
   try {
+
     products = await fetchProducts();
+
     filteredProducts = [...products];
 
     renderProducts(filteredProducts);
+
     updateCartCount();
+
   } catch (error) {
+
     showError();
+
   }
 }
 
+
+/* =========================
+   Loading State
+   ========================= */
+
 function showLoading() {
+
   productGrid.innerHTML = "";
 
   for (let i = 0; i < 6; i++) {
+
     const card = document.createElement("article");
 
     card.className = "card";
@@ -40,39 +60,65 @@ function showLoading() {
   }
 }
 
+
+/* =========================
+   Error State
+   ========================= */
+
 function showError() {
+
   productGrid.innerHTML = `
     <article class="card">
       <h2>⚠️ Unable to load products</h2>
+
       <p>
         Please check your internet connection and try again.
       </p>
+
+      <button onclick="loadProducts()">
+        Try Again
+      </button>
     </article>
   `;
 }
 
+
+/* =========================
+   Render Products
+   ========================= */
+
 function renderProducts(items) {
+
   productGrid.innerHTML = "";
 
   if (items.length === 0) {
+
     productGrid.innerHTML = `
       <article class="card">
+
         <h2>No products found</h2>
-        <p>Try another search or category.</p>
+
+        <p>
+          Try another search or category.
+        </p>
+
       </article>
     `;
 
     return;
   }
 
+
   items.forEach((product) => {
+
     const card = document.createElement("article");
 
     card.className = "card";
 
+
     card.innerHTML = `
       <img
-        src="${product.image}"
+        src="${product.thumbnail}"
         alt="${product.title}"
         style="
           width:100%;
@@ -92,110 +138,188 @@ function renderProducts(items) {
         <strong>₹${product.price}</strong>
       </p>
 
-      <button
-        onclick="addToCart(${product.id})"
-      >
+      <button onclick="addToCart(${product.id})">
         Add to Cart
       </button>
     `;
 
+
     productGrid.appendChild(card);
+
   });
 }
 
-/* Search */
-searchInput.addEventListener("input", applyFilters);
 
-/* Category */
+/* =========================
+   Search
+   ========================= */
+
+searchInput.addEventListener(
+  "input",
+  applyFilters
+);
+
+
+/* =========================
+   Category
+   ========================= */
+
 categoryButtons.forEach((button) => {
+
   button.addEventListener("click", () => {
 
     categoryButtons.forEach((btn) => {
+
       btn.classList.remove("active");
+
     });
 
+
     button.classList.add("active");
+
 
     selectedCategory =
       button.dataset.category;
 
+
     applyFilters();
+
   });
+
 });
 
-/* Sorting */
-sortSelect.addEventListener("change", applyFilters);
+
+/* =========================
+   Sorting
+   ========================= */
+
+sortSelect.addEventListener(
+  "change",
+  applyFilters
+);
+
+
+/* =========================
+   Filter + Sort
+   ========================= */
 
 function applyFilters() {
 
   const searchText =
-    searchInput.value.toLowerCase().trim();
+    searchInput.value
+      .toLowerCase()
+      .trim();
 
-  filteredProducts = products.filter((product) => {
 
-    const matchesSearch =
-      product.title
-        .toLowerCase()
-        .includes(searchText);
+  filteredProducts =
+    products.filter((product) => {
 
-    const matchesCategory =
-      selectedCategory === "all" ||
-      product.category === selectedCategory;
+      const matchesSearch =
+        product.title
+          .toLowerCase()
+          .includes(searchText);
 
-    return matchesSearch && matchesCategory;
-  });
 
-  const sortValue = sortSelect.value;
+      const matchesCategory =
+        selectedCategory === "all" ||
+        product.category === selectedCategory;
+
+
+      return (
+        matchesSearch &&
+        matchesCategory
+      );
+
+    });
+
+
+  const sortValue =
+    sortSelect.value;
+
 
   if (sortValue === "low-high") {
+
     filteredProducts.sort(
       (a, b) => a.price - b.price
     );
+
   }
 
+
   if (sortValue === "high-low") {
+
     filteredProducts.sort(
       (a, b) => b.price - a.price
     );
+
   }
 
+
   if (sortValue === "name") {
+
     filteredProducts.sort(
       (a, b) =>
         a.title.localeCompare(b.title)
     );
+
   }
 
+
   renderProducts(filteredProducts);
+
 }
 
-/* Cart */
+
+/* =========================
+   Cart
+   ========================= */
+
 function addToCart(productId) {
 
-  const product = products.find(
-    (item) => item.id === productId
-  );
+  const product =
+    products.find(
+      (item) => item.id === productId
+    );
+
 
   if (!product) return;
 
+
   cart.push(product);
+
 
   localStorage.setItem(
     "cart",
     JSON.stringify(cart)
   );
 
+
   updateCartCount();
 
+
   alert("Product added to cart!");
+
 }
+
+
+/* =========================
+   Cart Count
+   ========================= */
 
 function updateCartCount() {
 
   const cartCount =
     document.querySelector("#cart-count");
 
-  cartCount.textContent = cart.length;
+
+  cartCount.textContent =
+    cart.length;
+
 }
+
+
+/* =========================
+   Start Application
+   ========================= */
 
 loadProducts();
