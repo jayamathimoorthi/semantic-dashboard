@@ -219,10 +219,12 @@ function applyFilters() {
           .toLowerCase()
           .includes(searchText);
 
-
-      const matchesCategory =
-        selectedCategory === "all" ||
-        product.category === selectedCategory;
+const matchesCategory =
+  selectedCategory === "all" ||
+  product.category
+    .toLowerCase()
+    .includes(selectedCategory.toLowerCase());
+      
 
 
       return (
