@@ -148,3 +148,103 @@
 </body>
 
 </html>
+
+/* =========================
+   Dynamic Product Dashboard
+   ========================= */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+#search-input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid var(--border, #cccccc);
+  border-radius: 10px;
+  background: var(--surface, #ffffff);
+  color: var(--text, #222222);
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+#search-input:focus {
+  border-color: #2563eb;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-btn,
+.card button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.category-btn:hover,
+.card button:hover {
+  background: #1d4ed8;
+}
+
+.category-btn.active {
+  background: #1d4ed8;
+}
+
+#sort-select {
+  padding: 11px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background: white;
+  color: #222222;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.card img {
+  display: block;
+  max-width: 100%;
+}
+
+.card button {
+  margin-top: 10px;
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 767px) {
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #search-input,
+  #sort-select {
+    width: 100%;
+  }
+
+  .categories {
+    width: 100%;
+  }
+
+  .category-btn {
+    flex: 1 1 auto;
+  }
+
+}
