@@ -1,4 +1,4 @@
-const API_URL = "https://fakestoreapi.com/products";
+const API_URL = "https://dummyjson.com/products?limit=100";
 
 async function fetchProducts() {
   try {
@@ -8,8 +8,9 @@ async function fetchProducts() {
       throw new Error("Failed to fetch products");
     }
 
-    const products = await response.json();
-    return products;
+    const data = await response.json();
+
+    return data.products;
   } catch (error) {
     console.error("API Error:", error);
     throw error;
