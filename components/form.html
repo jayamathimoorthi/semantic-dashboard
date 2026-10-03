@@ -1,0 +1,54 @@
+<section id="reports" aria-labelledby="form-heading">
+    <h2 id="form-heading">Create Report</h2>
+
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Report Information</legend>
+
+            <p>
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    autocomplete="name"
+                >
+            </p>
+
+            <p>
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    autocomplete="email"
+                >
+            </p>
+
+            <p>
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    <option value="">Select a department</option>
+                    <option value="it">IT</option>
+                    <option value="hr">HR</option>
+                    <option value="finance">Finance</option>
+                    <option value="marketing">Marketing</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="report">Report Details</label>
+                <textarea
+                    id="report"
+                    name="report"
+                    rows="5"
+                    required
+                ></textarea>
+            </p>
+
+            <button type="submit">Submit Report</button>
+        </fieldset>
+    </form>
+</section>
