@@ -1,0 +1,39 @@
+<section id="users" aria-labelledby="users-heading">
+    <h2 id="users-heading">User Information</h2>
+
+    <table>
+        <caption>Employee information</caption>
+
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Arun Kumar</td>
+                <td>IT</td>
+                <td>arun@example.com</td>
+                <td>Active</td>
+            </tr>
+
+            <tr>
+                <td>Priya Sharma</td>
+                <td>HR</td>
+                <td>priya@example.com</td>
+                <td>Active</td>
+            </tr>
+
+            <tr>
+                <td>Rahul Kumar</td>
+                <td>Finance</td>
+                <td>rahul@example.com</td>
+                <td>Inactive</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
