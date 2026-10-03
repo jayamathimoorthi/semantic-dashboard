@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Responsive Dashboard</title>
+  <title>Dynamic Product Dashboard</title>
 </head>
 
 <body>
@@ -13,46 +13,65 @@
 
     <header class="header">
       <div>
-        <h1>Responsive Dashboard</h1>
-        <p>Mobile-first design with modern CSS architecture</p>
+        <h1>Product Dashboard</h1>
+        <p>Live products from REST API</p>
+      </div>
+
+      <div>
+        🛒 Cart: <strong id="cart-count">0</strong>
       </div>
     </header>
 
-    <section class="dashboard-grid">
+    <section class="controls">
 
-      <article class="card">
-        <h2>Analytics</h2>
-        <p>Track your application performance and important metrics.</p>
-      </article>
+      <input
+        type="search"
+        id="search-input"
+        placeholder="🔍 Search products..."
+      >
 
-      <article class="card">
-        <h2>Users</h2>
-        <p>Manage users and monitor activity across the application.</p>
-      </article>
+      <div class="categories">
+        <button class="category-btn active" data-category="all">
+          All
+        </button>
 
-      <article class="card">
-        <h2>Projects</h2>
-        <p>View active projects and organize your workflow efficiently.</p>
-      </article>
+        <button class="category-btn" data-category="electronics">
+          Electronics
+        </button>
 
-      <article class="card">
-        <h2>Reports</h2>
-        <p>Generate useful reports and understand your data better.</p>
-      </article>
+        <button class="category-btn" data-category="jewelery">
+          Jewelry
+        </button>
 
-      <article class="card">
-        <h2>Performance</h2>
-        <p>Monitor system performance across different screen sizes.</p>
-      </article>
+        <button class="category-btn" data-category="men's clothing">
+          Men's
+        </button>
 
-      <article class="card">
-        <h2>Settings</h2>
-        <p>Customize your dashboard and application preferences.</p>
-      </article>
+        <button class="category-btn" data-category="women's clothing">
+          Women's
+        </button>
+      </div>
+
+      <select id="sort-select">
+        <option value="default">Sort Products</option>
+        <option value="low-high">Price: Low to High</option>
+        <option value="high-low">Price: High to Low</option>
+        <option value="name">Name: A to Z</option>
+      </select>
 
     </section>
 
+    <section class="dashboard-grid">
+      <article class="card">
+        <h2>Loading...</h2>
+        <p>Fetching products...</p>
+      </article>
+    </section>
+
   </main>
+
+  <script src="api.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
