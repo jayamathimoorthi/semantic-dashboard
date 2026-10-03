@@ -1,77 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
   <title>Dynamic Product Dashboard</title>
 </head>
+
 
 <body>
 
   <main class="dashboard">
 
+    <!-- Header -->
     <header class="header">
+
       <div>
         <h1>Product Dashboard</h1>
-        <p>Live products from REST API</p>
+
+        <p>
+          Live products from REST API
+        </p>
       </div>
+
 
       <div>
-        🛒 Cart: <strong id="cart-count">0</strong>
+        🛒 Cart:
+        <strong id="cart-count">0</strong>
       </div>
+
     </header>
 
+
+    <!-- Controls -->
     <section class="controls">
 
+      <!-- Search -->
       <input
         type="search"
         id="search-input"
         placeholder="🔍 Search products..."
       >
 
+
+      <!-- Categories -->
       <div class="categories">
-        <button class="category-btn active" data-category="all">
+
+        <button
+          class="category-btn active"
+          data-category="all"
+        >
           All
         </button>
 
-        <button class="category-btn" data-category="electronics">
-          Electronics
+
+        <button
+          class="category-btn"
+          data-category="smartphones"
+        >
+          Smartphones
         </button>
 
-        <button class="category-btn" data-category="jewelery">
-          Jewelry
+
+        <button
+          class="category-btn"
+          data-category="laptops"
+        >
+          Laptops
         </button>
 
-        <button class="category-btn" data-category="men's clothing">
-          Men's
+
+        <button
+          class="category-btn"
+          data-category="beauty"
+        >
+          Beauty
         </button>
 
-        <button class="category-btn" data-category="women's clothing">
-          Women's
+
+        <button
+          class="category-btn"
+          data-category="furniture"
+        >
+          Furniture
         </button>
+
       </div>
 
+
+      <!-- Sorting -->
       <select id="sort-select">
-        <option value="default">Sort Products</option>
-        <option value="low-high">Price: Low to High</option>
-        <option value="high-low">Price: High to Low</option>
-        <option value="name">Name: A to Z</option>
+
+        <option value="default">
+          Sort Products
+        </option>
+
+        <option value="low-high">
+          Price: Low to High
+        </option>
+
+        <option value="high-low">
+          Price: High to Low
+        </option>
+
+        <option value="name">
+          Name: A to Z
+        </option>
+
       </select>
 
     </section>
 
+
+    <!-- Product Grid -->
     <section class="dashboard-grid">
+
       <article class="card">
+
         <h2>Loading...</h2>
-        <p>Fetching products...</p>
+
+        <p>
+          Fetching products...
+        </p>
+
       </article>
+
     </section>
 
   </main>
 
+
+  <!-- JavaScript -->
   <script src="api.js"></script>
+
   <script src="app.js"></script>
 
 </body>
+
 </html>
